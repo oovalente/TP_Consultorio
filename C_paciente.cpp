@@ -9,5 +9,6 @@ int main(){
     p1->Cadastro();
     p1->Imp_Ficha();
     p1->Consulta();
+    p1->getConsulta();
     return 0;
 }

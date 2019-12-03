@@ -2,13 +2,11 @@
 #include "paciente.h"
 #include "atendimento.h"
 #include<locale.h>
+#include "Exame.h"
 using namespace std;
 int main(){
     setlocale(LC_ALL,"");
-    Paciente *p1= new Paciente();
-    p1->Cadastro();
-    p1->Imp_Ficha();
-    p1->Consulta();
-    p1->get_Consulta();
+    Atendimento *p1=new Atendimento();
+    p1->Cadastrar();
     return 0;
 }

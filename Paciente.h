@@ -3,6 +3,7 @@
 #include<iostream>
 #include<string>
 #include<locale.h>
+#include<stdlib.h>
 #include "atendimento.h"
 using namespace std;
 class Paciente:public Atendimento{
@@ -73,6 +74,7 @@ void Paciente::Consulta(){
             cout<<"Horário: "<<horas<<":"<<minutos<<endl;
         //else
             //cout<<"Consulta não marcada! Horário indisponível!"<<endl;
+        system("cls");
     }
 }
 void Paciente::Excluir( ){

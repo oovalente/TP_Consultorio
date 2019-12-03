@@ -8,6 +8,5 @@ int main(){
     Paciente *p1= new Paciente();
     p1->Cadastro();
     p1->Imp_Ficha();
-    p1->Consulta();
     return 0;
 }

@@ -39,6 +39,7 @@ Paciente::~Paciente(){
 void Paciente::getConsulta(){
     cout<<" "<<endl;
     cout<<" "<<endl;
+    cout<<" "<<endl;
     cout<<"Consulta do paciente "<<getNome()<<endl;
     cout<<"Data: "<<dia<<"/"<<mes<<"/"<<ano<<endl;
     cout<<"Horário: "<<horas<<":"<<minutos<<endl;

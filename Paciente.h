@@ -28,7 +28,7 @@ public:
     void Cadastro();
     void Excluir();
     void Consulta();
-    void getConsulta();
+    void get_Consulta();
 };
 Paciente::Paciente(){
 
@@ -36,7 +36,7 @@ Paciente::Paciente(){
 Paciente::~Paciente(){
 
 }
-void Paciente::getConsulta(){
+void Paciente::get_Consulta(){
     cout<<" "<<endl;
     cout<<" "<<endl;
     cout<<" "<<endl;

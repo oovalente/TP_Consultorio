@@ -28,7 +28,7 @@ public:
     void Cadastro();
     void Excluir();
     void Consulta();
-    void getConsulta();
+    void get_consulta();
 };
 Paciente::Paciente(){
 
@@ -36,14 +36,7 @@ Paciente::Paciente(){
 Paciente::~Paciente(){
 
 }
-void Paciente::getConsulta(){
-    cout<<" "<<endl;
-    cout<<" "<<endl;
-    cout<<" "<<endl;
-    cout<<"Consulta do paciente "<<getNome()<<endl;
-    cout<<"Data: "<<dia<<"/"<<mes<<"/"<<ano<<endl;
-    cout<<"Horário: "<<horas<<":"<<minutos<<endl;
-}
+
 void Paciente::Consulta(){
     if(nome=="NULL"){
         cout<<"Paciente não cadastrado!!"<<endl;
@@ -53,14 +46,22 @@ void Paciente::Consulta(){
         cout<<" "<<endl;
         cout<<" "<<endl;
         cout<<"Digite o dia do mês que você deseja fazer a consulta:"<<endl;
+        if(dia<=31 && dia>0)
             cin>>dia;
         cout<<"Digite o respectivo número do mês para o cadastro:"<<endl;
-            cin>>mes;
+        if(mes<=12 && mes>0)
+            this.mes=mes;
         cout<<"Digite o ano da consulta:"<<endl;
-            cin>>ano;
+        cin>>ano;
+        if(ano>=2019)
+            this.ano=ano;
         cout<<"Digite o as hora da consulta e em seguida os minutos:"<<endl;
         cin>>horas;
+        if(horas>=24)
+            this.horas=horas;
         cin>>minutos;
+        if(minutos<=59 && minutos>=0)
+            this.minutos=minutos;
         //if(horas==disponível && minutos==disponível && dia==disponível)
             cout<<" "<<endl;
             cout<<" "<<endl;

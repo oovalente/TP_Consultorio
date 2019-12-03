@@ -18,9 +18,7 @@ public:
 Atendimento::Atendimento(){
 
 }
-Atendimento::~Atendimento(){
 
-}
 void Atendimento::Pesquisar(){
 
 }

@@ -29,12 +29,16 @@ public:
     void Excluir();
     void Consulta();
     void get_Consulta();
+    void Pesquisar();
 };
 Paciente::Paciente(){
 
 }
 Paciente::~Paciente(){
 
+}
+void Paciente::Pesquisar(){
+    //Ver como se faz
 }
 void Paciente::get_Consulta(){
     cout<<" "<<endl;

@@ -38,7 +38,7 @@ Paciente::~Paciente(){
 
 }
 void Paciente::Pesquisar(){
-    //Ver como se faz
+    //Ver como se faz a classe pesquisa
 }
 void Paciente::get_Consulta(){
     cout<<" "<<endl;

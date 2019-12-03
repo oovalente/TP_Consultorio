@@ -1,0 +1,39 @@
+﻿  Arquivo.cpp
+C:\Users\GUSTAVO\Documents\PDS_FINAL\TpPDS\TpPDS\Arquivo.cpp(14,1): error C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(208): message : consulte a declaração de 'fopen'
+C:\Users\GUSTAVO\Documents\PDS_FINAL\TpPDS\TpPDS\Arquivo.cpp(26,48): warning C4290: especificação de exceção de C++ ignorada exceto para indicar que a função não é __declspec(nothrow)
+C:\Users\GUSTAVO\Documents\PDS_FINAL\TpPDS\TpPDS\Arquivo.cpp(26,49): warning C5043: "Arquivo::Cadastrar": a especificação de exceção não corresponde à declaração anterior
+C:\Users\GUSTAVO\Documents\PDS_FINAL\TpPDS\TpPDS\Arquivo.h(21): message : consulte a declaração de 'Arquivo::Cadastrar'
+C:\Users\GUSTAVO\Documents\PDS_FINAL\TpPDS\TpPDS\Arquivo.cpp(37,53): warning C4290: especificação de exceção de C++ ignorada exceto para indicar que a função não é __declspec(nothrow)
+C:\Users\GUSTAVO\Documents\PDS_FINAL\TpPDS\TpPDS\Arquivo.cpp(37,55): warning C5043: "Arquivo::Excluir": a especificação de exceção não corresponde à declaração anterior
+C:\Users\GUSTAVO\Documents\PDS_FINAL\TpPDS\TpPDS\Arquivo.h(16): message : consulte a declaração de 'Arquivo::Excluir'
+C:\Users\GUSTAVO\Documents\PDS_FINAL\TpPDS\TpPDS\Arquivo.cpp(41,52): warning C4290: especificação de exceção de C++ ignorada exceto para indicar que a função não é __declspec(nothrow)
+C:\Users\GUSTAVO\Documents\PDS_FINAL\TpPDS\TpPDS\Arquivo.cpp(41,54): warning C5043: "Arquivo::Editar": a especificação de exceção não corresponde à declaração anterior
+C:\Users\GUSTAVO\Documents\PDS_FINAL\TpPDS\TpPDS\Arquivo.h(17): message : consulte a declaração de 'Arquivo::Editar'
+C:\Users\GUSTAVO\Documents\PDS_FINAL\TpPDS\TpPDS\Arquivo.cpp(45,55): warning C4290: especificação de exceção de C++ ignorada exceto para indicar que a função não é __declspec(nothrow)
+C:\Users\GUSTAVO\Documents\PDS_FINAL\TpPDS\TpPDS\Arquivo.cpp(45,57): warning C5043: "Arquivo::Pesquisar": a especificação de exceção não corresponde à declaração anterior
+  ArquivoPaciente.cpp
+C:\Users\GUSTAVO\Documents\PDS_FINAL\TpPDS\TpPDS\Arquivo.h(18): message : consulte a declaração de 'Arquivo::Pesquisar'
+C:\Users\GUSTAVO\Documents\PDS_FINAL\TpPDS\TpPDS\ArquivoPaciente.cpp(11,11): error C2228: esquerda de '.close' deve possuir class/struct/union
+C:\Users\GUSTAVO\Documents\PDS_FINAL\TpPDS\TpPDS\ArquivoPaciente.cpp(11,11): message : tipo é 'FILE *'
+C:\Users\GUSTAVO\Documents\PDS_FINAL\TpPDS\TpPDS\ArquivoPaciente.cpp(11,11): message : você pretendia usar '->'?
+C:\Users\GUSTAVO\Documents\PDS_FINAL\TpPDS\TpPDS\ArquivoPaciente.cpp(56,3): error C2672: 'getline': nenhuma função sobrecarregada correspondente encontrada
+C:\Users\GUSTAVO\Documents\PDS_FINAL\TpPDS\TpPDS\ArquivoPaciente.cpp(56,23): error C2784: 'std::basic_istream<_Elem,_Traits> &std::getline(std::basic_istream<_Elem,_Traits> &,std::basic_string<_Elem,_Traits,_Alloc> &)': não foi possível deduzir argumento de modelo para 'std::basic_istream<_Elem,_Traits> &' de 'FILE *'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\string(78): message : consulte a declaração de 'std::getline'
+C:\Users\GUSTAVO\Documents\PDS_FINAL\TpPDS\TpPDS\ArquivoPaciente.cpp(56,23): error C2780: 'std::basic_istream<_Elem,_Traits> &std::getline(std::basic_istream<_Elem,_Traits> &,std::basic_string<_Elem,_Traits,_Alloc> &,const _Elem)': espera 3 argumentos - 2 fornecidos
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\string(72): message : consulte a declaração de 'std::getline'
+C:\Users\GUSTAVO\Documents\PDS_FINAL\TpPDS\TpPDS\ArquivoPaciente.cpp(56,23): error C2784: 'std::basic_istream<_Elem,_Traits> &std::getline(std::basic_istream<_Elem,_Traits> &&,std::basic_string<_Elem,_Traits,_Alloc> &)': não foi possível deduzir argumento de modelo para 'std::basic_istream<_Elem,_Traits> &&' de 'FILE *'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\string(66): message : consulte a declaração de 'std::getline'
+C:\Users\GUSTAVO\Documents\PDS_FINAL\TpPDS\TpPDS\ArquivoPaciente.cpp(56,23): error C2780: 'std::basic_istream<_Elem,_Traits> &std::getline(std::basic_istream<_Elem,_Traits> &&,std::basic_string<_Elem,_Traits,_Alloc> &,const _Elem)': espera 3 argumentos - 2 fornecidos
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\string(23): message : consulte a declaração de 'std::getline'
+C:\Users\GUSTAVO\Documents\PDS_FINAL\TpPDS\TpPDS\ArquivoPaciente.cpp(88,13): error C2677: '<<' binário : nenhum operador global encontrado que receba o tipo 'std::string' (ou não há conversão aceitável)
+C:\Users\GUSTAVO\Documents\PDS_FINAL\TpPDS\TpPDS\ArquivoPaciente.cpp(107,3): error C2672: 'getline': nenhuma função sobrecarregada correspondente encontrada
+C:\Users\GUSTAVO\Documents\PDS_FINAL\TpPDS\TpPDS\ArquivoPaciente.cpp(107,23): error C2784: 'std::basic_istream<_Elem,_Traits> &std::getline(std::basic_istream<_Elem,_Traits> &,std::basic_string<_Elem,_Traits,_Alloc> &)': não foi possível deduzir argumento de modelo para 'std::basic_istream<_Elem,_Traits> &' de 'FILE *'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\string(78): message : consulte a declaração de 'std::getline'
+C:\Users\GUSTAVO\Documents\PDS_FINAL\TpPDS\TpPDS\ArquivoPaciente.cpp(107,23): error C2780: 'std::basic_istream<_Elem,_Traits> &std::getline(std::basic_istream<_Elem,_Traits> &,std::basic_string<_Elem,_Traits,_Alloc> &,const _Elem)': espera 3 argumentos - 2 fornecidos
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\string(72): message : consulte a declaração de 'std::getline'
+C:\Users\GUSTAVO\Documents\PDS_FINAL\TpPDS\TpPDS\ArquivoPaciente.cpp(107,23): error C2784: 'std::basic_istream<_Elem,_Traits> &std::getline(std::basic_istream<_Elem,_Traits> &&,std::basic_string<_Elem,_Traits,_Alloc> &)': não foi possível deduzir argumento de modelo para 'std::basic_istream<_Elem,_Traits> &&' de 'FILE *'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\string(66): message : consulte a declaração de 'std::getline'
+C:\Users\GUSTAVO\Documents\PDS_FINAL\TpPDS\TpPDS\ArquivoPaciente.cpp(107,23): error C2780: 'std::basic_istream<_Elem,_Traits> &std::getline(std::basic_istream<_Elem,_Traits> &&,std::basic_string<_Elem,_Traits,_Alloc> &,const _Elem)': espera 3 argumentos - 2 fornecidos
+  Gerando Código...
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\string(23): message : consulte a declaração de 'std::getline'

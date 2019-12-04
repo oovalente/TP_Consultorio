@@ -5,7 +5,7 @@
 #include<iostream>
 #include<locale.h>
 using namespace std;
-class Exame: public Atendimento{
+class Exame:public Atendimento{
 public:
     Exame();
     ~Exame();

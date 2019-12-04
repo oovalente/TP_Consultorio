@@ -3,6 +3,7 @@
 #include<iostream>
 #include<string>
 #include<locale.h>
+#include<stdlib.h>
 #include "atendimento.h"
 using namespace std;
 class Paciente:public Atendimento{
@@ -28,7 +29,12 @@ public:
     void Cadastro();
     void Excluir();
     void Consulta();
+<<<<<<< HEAD
     void get_consulta();
+=======
+    void get_Consulta();
+    void Pesquisar();
+>>>>>>> daa3351686f276eb7c76aa95895fc2cd37b93e71
 };
 Paciente::Paciente(){
 
@@ -36,7 +42,21 @@ Paciente::Paciente(){
 Paciente::~Paciente(){
 
 }
+<<<<<<< HEAD
 
+=======
+void Paciente::Pesquisar(){
+    //Ver como se faz
+}
+void Paciente::get_Consulta(){
+    cout<<" "<<endl;
+    cout<<" "<<endl;
+    cout<<" "<<endl;
+    cout<<"Consulta do paciente "<<getNome()<<endl;
+    cout<<"Data: "<<dia<<"/"<<mes<<"/"<<ano<<endl;
+    cout<<"Horário: "<<horas<<":"<<minutos<<endl;
+}
+>>>>>>> daa3351686f276eb7c76aa95895fc2cd37b93e71
 void Paciente::Consulta(){
     if(nome=="NULL"){
         cout<<"Paciente não cadastrado!!"<<endl;
@@ -70,6 +90,7 @@ void Paciente::Consulta(){
             cout<<"Horário: "<<horas<<":"<<minutos<<endl;
         //else
             //cout<<"Consulta não marcada! Horário indisponível!"<<endl;
+        system("cls");
     }
 }
 void Paciente::Excluir( ){

@@ -1,6 +1,7 @@
 #ifndef ATENDIMENTO_H_INCLUDED
 #define ATENDIMENTO_H_INCLUDED
 #include "Paciente.h"
+#include "Exame.h"
 class Atendimento{
 private:
     int dia;
@@ -9,6 +10,7 @@ private:
     int hora;
     int minutos;
 public:
+    void Laudo();
     Atendimento();
     ~Atendimento();
     void Cadastrar();
@@ -26,6 +28,9 @@ void Atendimento::Excluir(){
 
 }
 void Atendimento::Cadastrar(){
+
+}
+void Atendimento::Laudo(){
 
 }
 

@@ -1,5 +1,5 @@
 #include<iostream>
-#include "paciente.h"
+#include "Paciente.h"
 #include "atendimento.h"
 #include<locale.h>
 #include "Exame.h"

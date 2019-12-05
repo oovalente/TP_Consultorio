@@ -6,7 +6,8 @@
 using namespace std;
 int main(){
     setlocale(LC_ALL,"");
-    Atendimento *p1=new Atendimento();
-    p1->Cadastrar();
+    Exame *p1=new Exame();
+    p1->Laudo();
+    cout<<"Resultado:"<<endl<<p1->getResultado()<<endl;
     return 0;
 }

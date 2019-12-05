@@ -4,9 +4,11 @@
 #include "Paciente.h"
 #include<iostream>
 #include<locale.h>
+#include<string>
 using namespace std;
-class Exame:public Atendimento{
+class Exame{
 public:
+    string resultado;
     Exame();
     ~Exame();
     char tipo_sanguineo;
@@ -14,6 +16,8 @@ public:
     void Excluir();
     void Pesquisar();
     void Laudo();
+    string getResultado();
+    void setResultado(string exame);
 private:
 
 };
@@ -36,9 +40,6 @@ void Exame::Laudo(){
     cout<<"Colesterol Total: "<<endl;//
     cin>>c;
     cout<<"Digite 'S' para sim e 'N' para nao para responder as perguntas a seguir:"<<endl;
-    cin>>resp;
-    if(resp=='S')
-        ++cont;
     cout<<"Possuiu algum tipo de diabetes Mellitus?"<<endl;
     cin>>resp;
     if(resp=='S')
@@ -60,15 +61,14 @@ void Exame::Laudo(){
     if(resp=='S')
         ++cont;
     system("cls");
-    cout<<"Resultado:"<<endl;
     if(c>170 && cont>=3)
-        cout<<"Risco de doênça cardiovascular."<<endl;
+        setResultado("Risco de doênça cardiovascular.");
     else if(c<=170 && cont>=3)
-        cout<<"Risco de doença cardiovascular médio."<<endl;
+        setResultado("Risco de doença cardiovascular médio.");
     else if(c>=170 && cont<3)
-        cout<<"Risco baixo para doença cardiovascular,mas necessário acompanhamento medico devido ao colesterol mais alto que o usual."<<endl;
+        setResultado("Risco baixo para doença cardiovascular,mas necessário acompanhamento medico devido ao colesterol mais alto que o usual.");
     else
-        cout<<"Risco baixo de doença cardiovascular e colesterol mais baixo que o usual"<<endl;
+        setResultado("Risco baixo de doença cardiovascular e colesterol mais baixo que o usual");
 }
 void Exame::Cadastrar(){
 
@@ -78,5 +78,11 @@ void Exame::Excluir(){
 }
 void Exame::Pesquisar(){
 
+}
+string Exame::getResultado(){
+    return resultado;
+}
+void Exame::setResultado(string exame){
+    this->resultado=exame;
 }
 #endif // EXAME_H_INCLUDED

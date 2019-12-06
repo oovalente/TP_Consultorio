@@ -1,7 +1,5 @@
-#include "ArquivoConsulta.h"
-
 #pragma warning(disable : 4996)
-#include "ArquivoPaciente.h"
+#include "ArquivoConsulta.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -11,91 +9,132 @@
 #include <vector>
 #include <cstdio>
 #include "Execoes.h"
-const int itPNome = 31;
-const int itPIdade = 6;
-const int itPSexo = 5;
-const string stNomeArquivoAux = "ArquivoPacientes.txt";
+
+const int itPData = 11;
+const int itPNomePaciente = 40;
+const int itPModalidade = 20;
+const int itPDescricao = 150;
+const int itPExameMarcado = 4;
+
+const string stNomeArquivoAux = "ArquivoConsultas.txt";
 using namespace std;
 
-ArquivoPaciente::~ArquivoPaciente() {
+ArquivoConsulta::~ArquivoConsulta() {
 	fclose(Arq);
 }
 
-ArquivoPaciente::ArquivoPaciente(string stNomeArquivo = stNomeArquivoAux) : Arquivo(stNomeArquivo = stNomeArquivoAux) {
+ArquivoConsulta::ArquivoConsulta(string stNomeArquivo = stNomeArquivoAux) : Arquivo(stNomeArquivo = stNomeArquivoAux) {
 
 }
 
-
-string ArquivoPaciente::GetNome() {
-	return this->stNome;
+string ArquivoConsulta::GetData() {
+	return this->stData;
 }
 
-int ArquivoPaciente::GetIdade() {
-	return this->itIdade;
+string ArquivoConsulta::GetNomePaciente() {
+	return this->stNomePaciente;
 }
 
-char ArquivoPaciente::GetSexo() {
-	return this->chSexo;
+string ArquivoConsulta::GetModalidade() {
+	return this->stModalidade;
 }
 
-void ArquivoPaciente::SetNome(string Nome) {
-	this->stNome = Nome;
+string ArquivoConsulta::GetDescricao() {
+	return this->stDescricao;
 }
 
-void ArquivoPaciente::SetIdade(int Idade) {
-	this->itIdade = Idade;
+string ArquivoConsulta::GetExameMarcado() {
+	return this->stExameMarcado;
 }
 
-void ArquivoPaciente::SetSexo(char Sexo) {
-	this->chSexo = Sexo;
+void ArquivoConsulta::SetData(string _Data) {
+	this->stData = _Data;
 }
 
-void ArquivoPaciente::MontarLinha() {
+void ArquivoConsulta::SetNomePaciente(string _NomePaciente) {
+	this->stNomePaciente = _NomePaciente;
+}
+
+void ArquivoConsulta::SetModalidade(string _Modalidade) {
+	this->stModalidade = _Modalidade;
+}
+
+void ArquivoConsulta::SetDescricao(string _Descricao) {
+	this->stDescricao = _Descricao;
+}
+
+void ArquivoConsulta::SetExameMarcado(string _ExameMarcado) {
+	this->stExameMarcado = _ExameMarcado;
+}
+
+
+void ArquivoConsulta::MontarLinha() {
 	//Aqui se monta a linha de acordo com a estrutura esperada no arquivo
-	string aux(1, this->GetSexo());
-	//Nome;Idade;Sexo;
-	string stLinhaAux = this->GetNome() + ";" + to_string(this->GetIdade()) + ";" + aux + ";" + '\n';
+	//Data;NomePaciente;Modalidade;Descricao;ExameMarcado;
+	string stLinhaAux = this->GetData() + ";" + this->GetNomePaciente() + ";" + this->GetModalidade() + ";" +
+		this->GetDescricao() + ";" + this->GetExameMarcado() + '\n';
 	this->SetLinha(stLinhaAux);
 }
 
-void ArquivoPaciente::PreencherVectorPacientes(vector<strPacientes>& vcPcnt, bool blSpace) {
-	strPacientes pc1;
-	char chLinhaAux[150];
+void ArquivoConsulta::PreencherVectorConsultas(vector<strConsulta>& vcPcnt, bool blSpace) {
+	strConsulta pc1;
+	char chLinhaAux[500];
 	string stCampo;
 	this->CarregarArquivo(stNomeArquivoAux, "");
 
-	while (fgets(chLinhaAux, 150, this->Arq) != NULL) {
+	while (fgets(chLinhaAux, 500, this->Arq) != NULL) {
+		string stData;
+		string stNomePaciente;
+		string stModalidade;
+		string stDescricao;
+		string stExameMarcado;
+
+		//Data;NomePaciente;Modalidade;Descricao;ExameMarcado;
 		string stLinha(chLinhaAux);
-		//cout << stLinha;
 		stCampo = stLinha.substr(0, stLinha.find(';'));
 		if (blSpace)
-			stCampo.resize(30, ' ');
-		pc1.stNome = stCampo;
+			stCampo.resize(itPData, ' ');
+		pc1.stData = stCampo;
 
 		stLinha = stLinha.substr(stLinha.find(';') + 1, stLinha.size());
 		stCampo = stLinha.substr(0, stLinha.find(';'));
 		if (blSpace)
-			stCampo.resize(4, ' ');
-		pc1.itIdade = stoi(stCampo);
+			stCampo.resize(itPNomePaciente, ' ');
+		pc1.stNomePaciente = stCampo;
 
 		stLinha = stLinha.substr(stLinha.find(';') + 1, stLinha.size());
 		stCampo = stLinha.substr(0, stLinha.find(';'));
 		if (blSpace)
-			stCampo.resize(1, ' ');
-		pc1.stSexo = stCampo;
+			stCampo.resize(itPModalidade, ' ');
+		pc1.stModalidade = stCampo;
+		
+		stLinha = stLinha.substr(stLinha.find(';') + 1, stLinha.size());
+		stCampo = stLinha.substr(0, stLinha.find(';'));
+		if (blSpace) {
+			pc1.stDescricao = stCampo + ' ';
+		}
+		else {
+			pc1.stDescricao = stCampo;
+		}		
+
+		stLinha = stLinha.substr(stLinha.find(';') + 1, stLinha.size());
+		stCampo = stLinha.substr(0, stLinha.find(';'));
+		if (blSpace)
+			stCampo.resize(itPExameMarcado, ' ');
+		pc1.stExameMarcado = stCampo;
 
 		vcPcnt.push_back(pc1);
 	}
 	fclose(this->Arq);
 }
 
-void ArquivoPaciente::Excluir() throw (Ex_LinhaNaoEncontrada) {
-	vector<strPacientes> vcPcnt;
-	this->PreencherVectorPacientes(vcPcnt, false);
+void ArquivoConsulta::Excluir() throw (Ex_LinhaNaoEncontrada) {
+	vector<strConsulta> vcPcnt;
+	this->PreencherVectorConsultas(vcPcnt, false);
 	int j = 0;
 	bool blEncontrou = false;
-	for (strPacientes i : vcPcnt) {
-		if (i.stNome == this->GetNome()) {
+	for (strConsulta i : vcPcnt) {
+		if ((i.stNomePaciente == this->GetNomePaciente()) && (i.stData == this->GetData())) {
 			vcPcnt.erase(vcPcnt.begin() + j);
 			blEncontrou = true;
 		}
@@ -107,8 +146,9 @@ void ArquivoPaciente::Excluir() throw (Ex_LinhaNaoEncontrada) {
 	}
 	else {
 		FILE* arqNovo = fopen("excluir.txt", "w");
-		for (strPacientes i : vcPcnt) {
-			string stLinha = i.stNome + ";" + to_string(i.itIdade) + ";" + i.stSexo + ";" + '\n';
+		for (strConsulta i : vcPcnt) {
+			string stLinha = this->GetData() + ";" + this->GetNomePaciente() + ";" + this->GetModalidade() + ";" +
+				this->GetDescricao() + ";" + this->GetExameMarcado() + '\n';
 			fprintf_s(arqNovo, stLinha.c_str());
 		}
 		_fclose_nolock(this->Arq);
@@ -119,17 +159,19 @@ void ArquivoPaciente::Excluir() throw (Ex_LinhaNaoEncontrada) {
 	}
 }
 
-void ArquivoPaciente::Editar() throw (Ex_LinhaNaoEncontrada) {
-	vector<strPacientes> vcPcnt;
-	this->PreencherVectorPacientes(vcPcnt, false);
+void ArquivoConsulta::Editar() throw (Ex_LinhaNaoEncontrada) {
+	vector<strConsulta> vcPcnt;
+	this->PreencherVectorConsultas(vcPcnt, false);
 	int j = 0;
 	bool blEncontrou = false;
-	for (strPacientes i : vcPcnt) {
-		if (i.stNome == this->GetNome()) {
+	for (strConsulta i : vcPcnt) {
+		if ((i.stNomePaciente == this->GetNomePaciente()) && (i.stData == this->GetData())) {
 			vcPcnt.erase(vcPcnt.begin() + j);
-			i.stNome = this->GetNome();
-			i.itIdade = this->GetIdade();
-			i.stSexo = this->GetSexo();
+			i.stData = this->GetData();
+			i.stNomePaciente = this->GetNomePaciente();
+			i.stModalidade = this->GetModalidade();
+			i.stDescricao = this->GetDescricao();
+			i.stExameMarcado = this->GetExameMarcado();
 			vcPcnt.insert(vcPcnt.begin() + j, i);
 			blEncontrou = true;
 		}
@@ -141,8 +183,9 @@ void ArquivoPaciente::Editar() throw (Ex_LinhaNaoEncontrada) {
 	}
 	else {
 		FILE* arqNovo = fopen("editar.txt", "w");
-		for (strPacientes i : vcPcnt) {
-			string stLinha = i.stNome + ";" + to_string(i.itIdade) + ";" + i.stSexo + ";" + '\n';
+		for (strConsulta i : vcPcnt) {
+			string stLinha = this->GetData() + ";" + this->GetNomePaciente() + ";" + this->GetModalidade() + ";" +
+				this->GetDescricao() + ";" + this->GetExameMarcado() + '\n';
 			fprintf_s(arqNovo, stLinha.c_str());
 		}
 		_fclose_nolock(this->Arq);
@@ -153,15 +196,16 @@ void ArquivoPaciente::Editar() throw (Ex_LinhaNaoEncontrada) {
 	}
 }
 
-int ArquivoPaciente::Pesquisar() {
+int ArquivoConsulta::Pesquisar() {
 	//Realiza a busca por nome
 	int result = 0;
-	vector<strPacientes> vcPcnt;
-	this->PreencherVectorPacientes(vcPcnt, false);
+	vector<strConsulta> vcPcnt;
+	this->PreencherVectorConsultas(vcPcnt, false);
 
-	for (strPacientes i : vcPcnt) {
-		if (i.stNome == this->GetNome()) {
-			string stLinhaAux = i.stNome + ";" + to_string(i.itIdade) + ";" + i.stSexo + ";";
+	for (strConsulta i : vcPcnt) {
+		if ((i.stNomePaciente == this->GetNomePaciente()) && (i.stData == this->GetData())) {
+			string stLinhaAux = i.stData + ";" + i.stNomePaciente + ";" + i.stModalidade + ";" +
+				i.stDescricao + ";" + i.stExameMarcado + ";";
 			cout << stLinhaAux << endl;
 			result = 1;
 		}
@@ -169,22 +213,37 @@ int ArquivoPaciente::Pesquisar() {
 	return result;
 }
 
-void ArquivoPaciente::ListarTodos() {
-	vector<strPacientes> vctListar;
-	this->PreencherVectorPacientes(vctListar, true);
-	string stCbNome = "Nome";
-	stCbNome.resize(itPNome, ' ');
-	string stCbIdade = "Idade";
-	stCbIdade.resize(itPIdade, ' ');
-	string stCbSexo = "Sexo";
-	stCbSexo.resize(itPSexo, ' ');
-	cout << stCbNome << stCbIdade << stCbSexo << endl;
+void ArquivoConsulta::ListarTodos() {
+	vector<strConsulta> vctListar;
+	
+	const int itPData = 11;
+	const int itPNomePaciente = 40;
+	const int itPModalidade = 20;
+	const int itPDescricao = 150;
+	const int itPExameMarcado = 4;
 
-	for (strPacientes p : vctListar) {
-		p.stNome.resize(itPNome, ' ');
-		string stIdade = to_string(p.itIdade);
-		stIdade.resize(itPIdade, ' ');
-		p.stSexo.resize(itPSexo, ' ');
-		cout << p.stNome << stIdade << p.stSexo << endl;
+	this->PreencherVectorConsultas(vctListar, true);
+	//Data;NomePaciente;Modalidade;Descricao;ExameMarcado;
+	string stData = "Data";
+	string stNomePaciente = "Nome Paciente";
+	string stModalidade = "Modalidade";
+	string stDescricao = "Descrição";
+	string stExameMarcado = "Exame";
+	
+	stData.resize(itPData, ' ');
+	stNomePaciente.resize(itPNomePaciente, ' ');
+	stModalidade.resize(itPModalidade, ' ');
+	stDescricao = stDescricao + ' ';
+	stExameMarcado.resize(itPExameMarcado, ' ');
+
+	cout << stData << stNomePaciente << stModalidade << stDescricao << stExameMarcado << endl;
+
+	for (strConsulta p : vctListar) {
+		stData = p.stData;
+		stNomePaciente = p.stNomePaciente;
+		stModalidade = p.stModalidade;
+		stDescricao = p.stDescricao;
+		stExameMarcado = p.stExameMarcado;
+		cout << stData << stNomePaciente << stModalidade << stDescricao << stExameMarcado << endl;
 	}
 }

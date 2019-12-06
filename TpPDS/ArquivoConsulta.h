@@ -16,30 +16,33 @@ private:
 	string stData;
 	string stNomePaciente;
 	string stModalidade;
+	string stDescricao;
+	string stExameMarcado;
 
 	//Strcut auxiliar na exclusão, edição e inserção
 	struct strConsulta {
-		string stNome;
-		int itIdade;
-		string stSexo;
+		string stData;
+		string stNomePaciente;
+		string stModalidade;
+		string stDescricao;
+		string stExameMarcado;
 	};
 public:
 	//Construtor
 	ArquivoConsulta(string stNomeArquivo);
 	//Destrutor
 	~ArquivoConsulta();
-	//Retorna o nome do paciente
-	string GetNome();
-	//Retorna a idade do paciente
-	int GetIdade();
-	//Retorna o sexo do paciente
-	char GetSexo();
-	//Informa o nome do paciente
-	void SetNome(string Nome);
-	//Informa a idade do paciente
-	void SetIdade(int Idade);
-	//Informa o sexo do paciente
-	void SetSexo(char Sexo);
+	string GetData();
+	string GetNomePaciente();
+	string GetModalidade();
+	string GetDescricao();
+	string GetExameMarcado();
+	void SetData(string _Data);
+	void SetNomePaciente(string _NomePaciente);
+	void SetModalidade(string _Modalidade);
+	void SetDescricao(string _Descricao);
+	void SetExameMarcado(string _ExameMarcado);
+
 	//Funções sobrescritas por que devem ser configuradas de forma específica para o tipo de arquivo
 	void Excluir() throw (Ex_LinhaNaoEncontrada)override;
 	void Editar() throw (Ex_LinhaNaoEncontrada)override;
@@ -47,6 +50,6 @@ public:
 	void MontarLinha() override;
 	void ListarTodos() override;
 	//Método que preenche um vetor com os dados dos pacientes 
-	void PreencherVectorPacientes(vector<strPacientes>& vcPcnt, bool blSpace);
+	void PreencherVectorConsultas(vector<strConsulta>& vcPcnt, bool blSpace);
 };
 

@@ -58,28 +58,28 @@ void ArquivoPaciente::MontarLinha() {
 
 void ArquivoPaciente::PreencherVectorPacientes(vector<strPacientes>& vcPcnt, bool blSpace) {
 	strPacientes pc1;
-	char chLinhaAux[150];
+	char chLinhaAux[300];
 	string stCampo;
 	this->CarregarArquivo(stNomeArquivoAux, "");
 
-	while (fgets(chLinhaAux, 150, this->Arq) != NULL) {
+	while (fgets(chLinhaAux, 300, this->Arq) != NULL) {
 		string stLinha(chLinhaAux);
 		//cout << stLinha;
 		stCampo = stLinha.substr(0, stLinha.find(';'));
 		if (blSpace)
-			stCampo.resize(30, ' ');
+			stCampo.resize(itPNome, ' ');
 		pc1.stNome = stCampo;
 
 		stLinha = stLinha.substr(stLinha.find(';') + 1, stLinha.size());
 		stCampo = stLinha.substr(0, stLinha.find(';'));
 		if (blSpace)
-			stCampo.resize(4, ' ');
+			stCampo.resize(itPIdade, ' ');
 		pc1.itIdade = stoi(stCampo);
 
 		stLinha = stLinha.substr(stLinha.find(';') + 1, stLinha.size());
 		stCampo = stLinha.substr(0, stLinha.find(';'));
 		if (blSpace)
-			stCampo.resize(1, ' ');
+			stCampo.resize(itPSexo, ' ');
 		pc1.stSexo = stCampo;
 
 		vcPcnt.push_back(pc1);

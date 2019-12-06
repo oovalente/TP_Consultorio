@@ -147,8 +147,8 @@ void ArquivoConsulta::Excluir() throw (Ex_LinhaNaoEncontrada) {
 	else {
 		FILE* arqNovo = fopen("excluir.txt", "w");
 		for (strConsulta i : vcPcnt) {
-			string stLinha = this->GetData() + ";" + this->GetNomePaciente() + ";" + this->GetModalidade() + ";" +
-				this->GetDescricao() + ";" + this->GetExameMarcado() + '\n';
+			string stLinha = i.stData + ";" + i.stNomePaciente + ";" + i.stModalidade + ";" +
+				i.stDescricao + ";" + i.stExameMarcado + '\n';
 			fprintf_s(arqNovo, stLinha.c_str());
 		}
 		_fclose_nolock(this->Arq);
@@ -216,12 +216,6 @@ int ArquivoConsulta::Pesquisar() {
 void ArquivoConsulta::ListarTodos() {
 	vector<strConsulta> vctListar;
 	
-	const int itPData = 11;
-	const int itPNomePaciente = 40;
-	const int itPModalidade = 20;
-	const int itPDescricao = 150;
-	const int itPExameMarcado = 4;
-
 	this->PreencherVectorConsultas(vctListar, true);
 	//Data;NomePaciente;Modalidade;Descricao;ExameMarcado;
 	string stData = "Data";
@@ -244,6 +238,11 @@ void ArquivoConsulta::ListarTodos() {
 		stModalidade = p.stModalidade;
 		stDescricao = p.stDescricao;
 		stExameMarcado = p.stExameMarcado;
+		stData.resize(itPData, ' ');
+		stNomePaciente.resize(itPNomePaciente, ' ');
+		stModalidade.resize(itPModalidade, ' ');
+		stDescricao = stDescricao + ' ';
+		stExameMarcado.resize(itPExameMarcado, ' ');
 		cout << stData << stNomePaciente << stModalidade << stDescricao << stExameMarcado << endl;
 	}
 }

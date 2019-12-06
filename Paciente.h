@@ -87,7 +87,7 @@ void Paciente::Cadastro(){
     int ida;
     char sex;
     cout<<"Digite o nome completo do paciente:"<<endl;
-    cin>>n;
+    getline (cin,n);
     setNome(n);
     cout<<"Digite a idade do paciente"<<endl;
     cin>>ida;

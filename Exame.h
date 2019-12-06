@@ -5,6 +5,8 @@
 #include<iostream>
 #include<locale.h>
 #include<string>
+#include<fstream>
+#include<time.h>
 using namespace std;
 class Exame{
 public:
@@ -18,6 +20,7 @@ public:
     void Laudo();
     string getResultado();
     void setResultado(string exame);
+    void Dicas();
 private:
 
 };
@@ -27,6 +30,23 @@ Exame::Exame(){
 Exame::~Exame(){
 
 }
+void Exame::Dicas(){
+    setlocale(LC_ALL,"");
+    system("cls");
+    ifstream file;
+    file.open("Dica_texto.txt");
+    string fileOutput;
+    if(file.is_open()){
+        while(!file.eof()){
+            file>>fileOutput;
+            cout<<fileOutput<<endl;
+        }
+    }
+    else{
+        cout<<"Não foi possível abrir o arquivo"<<endl;
+    }
+    file.close();
+}
 void Exame::Laudo(){
     /* Se sim para 3 ou mais perguntas e coleterol total maior que 170 alto risco de doença cardiovascular
     se sim para 3 ou mais perguntas e coleterol total dentro da faixa esperada risco de doença cardiovascular medio
@@ -34,6 +54,8 @@ void Exame::Laudo(){
     se sim para menos q 3 perguntas e colesterol total normal risco baxio
 */
     setlocale(LC_ALL,"");
+    int tempo=clock();
+    char resp_dica;
     char resp;
     int cont=0,c;
     cout<<"Digite os resultados dos seus exames"<<endl;
@@ -69,6 +91,17 @@ void Exame::Laudo(){
         setResultado("Risco baixo para doença cardiovascular,mas necessário acompanhamento medico devido ao colesterol mais alto que o usual.");
     else
         setResultado("Risco baixo de doença cardiovascular e colesterol mais baixo que o usual");
+    cout<<"Resultado:"<<endl<<endl<<getResultado()<<endl<<endl;
+    system ("pause");
+    system("cls");
+    cout<<"Deseja receber dicas de como melhorar sua saúde e melhorar sua reeducão alimentar:"<<endl;
+    cin>>resp_dica;
+    if(resp_dica=='S')
+        Dicas();
+    else{
+        cout<<"                 Obrigado por usar nosso Sistema!"<<endl;
+        system("cls");
+    }
 }
 void Exame::Cadastrar(){
 

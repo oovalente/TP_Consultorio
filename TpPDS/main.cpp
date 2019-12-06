@@ -5,11 +5,11 @@
 
 int main() {
 	ArquivoPaciente* arq = new ArquivoPaciente("");
-	//arq->ListarTodos();
-	arq->SetNome("Otávio1");
+	arq->SetNome("Maradona");
 	arq->SetIdade(15);
 	arq->SetSexo('M');
 	arq->Cadastrar();
+	arq->ListarTodos();
 	delete arq;
 	return 0;
 }

@@ -3,52 +3,63 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <cstdio>
 #include "Execoes.h"
 
 using namespace std;
-
-Arquivo::Arquivo(string stNomeArquivo)
-{
+//Carrega o arquivo texto
+void Arquivo::CarregarArquivo(string _Nome, string _Tipo) {
 	this->SetNomeArquivo(stNomeArquivo);
-	string aux = this->GetNomeArquivo();
-	Arq = fopen(aux.c_str(), "rt");
-	if (Arq == NULL) {
-		Arq = fopen(aux.c_str(), "wt");
-		if (Arq == NULL) {
+	_Tipo = "r";
+	fopen_s(&this->Arq, this->GetNomeArquivo().c_str(), _Tipo.c_str());
+	if (this->Arq == NULL) {
+		_Tipo = "w";
+		fopen_s(&this->Arq, this->GetNomeArquivo().c_str(), _Tipo.c_str());
+		if (this->Arq == NULL) {
 			cout << "Erro ao abrir o arquivo.";
 			exit(0);
 		}
 	}
 }
-
+//Construtor
+Arquivo::Arquivo(string stNomeArquivo)
+{
+	this->SetNomeArquivo(stNomeArquivo);
+}
+//Destrutor
 Arquivo::~Arquivo()
 {
-	fclose(Arq);
+	if (this->Arq != NULL) {
+		fclose(this->Arq);
+	}	
 }
-
-void Arquivo::Cadastrar() throw (Ex_ErroInserir){
+//Método que insere uma linha
+void Arquivo::Cadastrar() throw (Ex_LinhaVazia){
 	this->MontarLinha();
-	string stAux;
-	//Arq << this->GetLinha() << '\n';
-	fprintf(this->Arq,this->GetLinha().c_str());
+	if (this->GetLinha() == "") {
+		throw Ex_LinhaVazia();
+	}
+	this->CarregarArquivo(this->GetNomeArquivo().c_str(), "");
+	fprintf_s(this->Arq, this->GetLinha().c_str());
+	fclose(this->Arq);
 }
-
+//Método que lista todas as linhas do arquivo
 void Arquivo::ListarTodos() {
 	
 }
-
+//Método que exclui uma linha
 void Arquivo::Excluir() throw (Ex_LinhaNaoEncontrada) {
 
 }
-
+//Método que edita uma linha
 void Arquivo::Editar() throw (Ex_LinhaNaoEncontrada) {
 
 }
-
-void Arquivo::Pesquisar() throw (Ex_LinhaNaoEncontrada) {
-
+//Método que retorna uma linha a partir de um atributo setado
+int Arquivo::Pesquisar() {
+	return -1;
 }
-
+//Método que monta a estrutura de gravação no arquivo
 void Arquivo::MontarLinha() {
 	
 }

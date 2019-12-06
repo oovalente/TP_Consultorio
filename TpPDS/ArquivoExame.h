@@ -15,33 +15,35 @@ private:
 	//Atributos específicos da classe
 	string stData;
 	string stNomePaciente;
-	string stModalidade;
-	string stDescricao;
-	string stExameMarcado;
+	string stTipoExame;
+	string stLaudo;
+	string stApresentaRiscoIminente;
 
 	//Strcut auxiliar na exclusão, edição e inserção
-	struct strConsulta {
+	struct strExame {
 		string stData;
 		string stNomePaciente;
-		string stModalidade;
-		string stDescricao;
-		string stExameMarcado;
+		string stTipoExame;
+		string stLaudo;
+		string stApresentaRiscoIminente;
 	};
 public:
 	//Construtor
-	ArquivoConsulta(string stNomeArquivo);
+	ArquivoExame(string stNomeArquivo);
 	//Destrutor
-	~ArquivoConsulta();
+	~ArquivoExame();
+
 	string GetData();
 	string GetNomePaciente();
-	string GetModalidade();
-	string GetDescricao();
-	string GetExameMarcado();
+	string GetTipoExame();
+	string GetLaudo();
+	string GetApresentaRiscoIminente();
+
 	void SetData(string _Data);
 	void SetNomePaciente(string _NomePaciente);
-	void SetModalidade(string _Modalidade);
-	void SetDescricao(string _Descricao);
-	void SetExameMarcado(string _ExameMarcado);
+	void SetTipoExame(string _TipoExame);
+	void SetLaudo(string _Laudo);
+	void SetApresentaRiscoIminente(string _ApresentaRiscoIminente);
 
 	//Funções sobrescritas por que devem ser configuradas de forma específica para o tipo de arquivo
 	void Excluir() throw (Ex_LinhaNaoEncontrada)override;
@@ -50,7 +52,5 @@ public:
 	void MontarLinha() override;
 	void ListarTodos() override;
 	//Método que preenche um vetor com os dados dos pacientes 
-	void PreencherVectorConsultas(vector<strConsulta>& vcPcnt, bool blSpace);
+	void PreencherVectorExames(vector<strExame>& vcPcnt, bool blSpace);
 };
-
-

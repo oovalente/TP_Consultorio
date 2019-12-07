@@ -23,15 +23,23 @@
     <ClCompile Include="ArquivoConsulta.cpp" />
     <ClCompile Include="ArquivoExame.cpp" />
     <ClCompile Include="ArquivoPaciente.cpp" />
+    <ClCompile Include="Consultas.cpp" />
+    <ClCompile Include="ExameColesterol.cpp" />
+    <ClCompile Include="Exames.cpp" />
     <ClCompile Include="Execoes.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Pacientes.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Arquivo.h" />
     <ClInclude Include="ArquivoConsulta.h" />
     <ClInclude Include="ArquivoExame.h" />
     <ClInclude Include="ArquivoPaciente.h" />
+    <ClInclude Include="Consultas.h" />
+    <ClInclude Include="ExameColesterol.h" />
+    <ClInclude Include="Exames.h" />
     <ClInclude Include="Execoes.h" />
+    <ClInclude Include="Pacientes.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

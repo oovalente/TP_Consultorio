@@ -199,8 +199,8 @@ int ArquivoExame::Pesquisar() {
 
 	for (strExame i : vcPcnt) {
 		if ((i.stNomePaciente == this->GetNomePaciente()) && (i.stData == this->GetData())) {
-			string stLinhaAux = i.stData + ";" + i.stNomePaciente + ";" + i.stModalidade + ";" +
-				i.stDescricao + ";" + i.stExameMarcado + ";";
+			string stLinhaAux = i.stData + ";" + i.stNomePaciente + ";" + i.stTipoExame + ";" +
+				i.stLaudo + ";" + i.stApresentaRiscoIminente + ";";
 			cout << stLinhaAux << endl;
 			result = 1;
 		}
